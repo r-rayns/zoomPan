@@ -1,4 +1,5 @@
 # zoomPan
+<<<<<<< HEAD
 
 zoomPan is a basic Angular.js custom directive that zooms and pans as you move the cursor over the image. I have tried to keep the code as minimal as possible so it can be easily adapted
 
@@ -23,11 +24,11 @@ Basic usage could look somthing like so:
 In this example the image url is placed directly into the directive but this could easily come from a binding defined elsewhere. 
 Three other properties are also set;
 
-    frame - provide a unquie identifier to be attributed to the image containter *
-    img - provide a unquie identifier to be attributed to the actual image *
-    zoomlvl - provide a scale to zoom by, default 2.5
+*frame - provide a unquie identifier to be attributed to the image containter †
+*img - provide a unquie identifier to be attributed to the actual image †
+*zoomlvl - provide a scale to zoom by, default 2.5
 
-* These are mandatory properties 
+† These are mandatory properties 
 
 ## Contributing
 
@@ -68,3 +69,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+=======
+zoomPan is a basic Angular.js custom directive that zooms and pans as you move the cursor over the image
+>>>>>>> b9d8f6c1db74bd8734847dea522baea299ca7f98
