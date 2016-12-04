@@ -24,9 +24,9 @@ Basic usage could look somthing like so:
 In this example the image url is placed directly into the directive but this could easily come from a binding defined elsewhere. 
 Three other properties are also set;
 
-*frame - provide a unquie identifier to be attributed to the image containter †
-*img - provide a unquie identifier to be attributed to the actual image †
-*zoomlvl - provide a scale to zoom by, default 2.5
+* frame - provide a unquie identifier to be attributed to the image containter †
+* img - provide a unquie identifier to be attributed to the actual image †
+* zoomlvl - provide a scale to zoom by, default 2.5
 
 † These are mandatory properties 
 
