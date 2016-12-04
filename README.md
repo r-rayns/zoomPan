@@ -1,5 +1,4 @@
 # zoomPan
-<<<<<<< HEAD
 
 zoomPan is a basic Angular.js custom directive that zooms and pans as you move the cursor over the image. I have tried to keep the code as minimal as possible so it can be easily adapted
 
@@ -69,6 +68,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-=======
-zoomPan is a basic Angular.js custom directive that zooms and pans as you move the cursor over the image
->>>>>>> b9d8f6c1db74bd8734847dea522baea299ca7f98
