@@ -72,8 +72,8 @@ zoomPan.directive('zoom', function($window) {
 			zoomlvl: '@zoomlvl'
 		},
 		template: [
-			'<div id="{{ frame }}" class="zoomPanFrame" ng-mousemove="trackMouse($event)">',
-			'<img id="{{ img }}" class="zoomPanImage" ng-src= "{{ src }}"></img>',
+			'<div id="{{ frame }}" class="zoomPanFrame" >',
+			'<img id="{{ img }}" class="zoomPanImage" ng-src= "{{ src }}" ng-mousemove="trackMouse($event)"></img>',
 			'</div>'
 		].join(''),
 		link: link

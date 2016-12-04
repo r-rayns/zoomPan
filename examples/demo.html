@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html ng-app="zoomPanApp">
+<head>
+	<meta charset="UTF-8">
+	
+	
+	<style>
+		html, body {
+			background-color: #333;
+			margin: 0;
+			padding: 0;
+			padding-bottom: 1em;
+		}
+		.title div { 
+			height: 65px;
+			line-height: 60px;
+			font-family: openSans, Helvetica, sans-serif;
+			font-size: 3em;
+			font-weight: bold;
+			text-align: center;
+		}
+		.titleText { 
+			color: #FFFFFF;
+		}
+		
+		.content {
+			height: auto;
+			width: 58em;
+			background-color: #FFFFFF;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 0.5em;
+			text-align: center;
+			padding: 2.5em;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+			border-radius: 0.5em;
+		}
+		.content p, ul {
+			text-align: left;
+			font-family: Times New Roman, Times, serif;
+			font-size: 1.1em;
+			color: #333;
+			text-rendering: optimizeLegibility;
+		}
+		
+		.content h1 {
+			text-align: center;
+			font-family: Helvetica, sans-serif;
+			font-size: 1.5em;
+			color: #333;
+		}
+		
+		.code {
+			width:55em;
+			font-size: 0.9em;
+			margin-left: auto;
+			margin-right: auto ;
+		}
+		
+		input::-moz-focus-inner { 
+			border: 0; 
+		}
+		
+		.download-button {
+			display:inline-block;
+			outline: none;
+			width: 8em;
+			height: 2.5em;
+			padding: 0;
+			font-size: 1.4em;
+			color: white;
+			text-align: center;
+			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+			background: #9CBDDE;
+			border: 0;
+			border-bottom: 2px solid #94B1CE;
+			cursor: pointer;
+			-webkit-box-shadow: inset 0 -2px #94B1CE;
+			box-shadow: inset 0 -2px #94B1CE;
+		}	
+
+		.download-button:active {
+			top: 1px;
+			outline: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+	</style>
+
+
+
+	<!--Angular Include -->
+	<script src=
+	"https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js">
+	</script>
+	
+	<!--zoomPan Script-->
+	<script src="../js/zoomPan.js">
+	</script>
+	
+	<!--zoomPan Style Sheet-->
+	<link href="../css/zoomPan.css" rel="stylesheet" type="text/css">
+
+	<title>zoomPan</title>
+</head>
+
+<body>
+	<div class="title">
+		<div class="titleText">
+			zoomPan
+		</div>
+	</div>
+	<div class="content">
+		<h1>Example </h1>
+		<zoom src="{{ './montparn.jpg' }}" frame="example1" img="image1" zoomlvl="1.5")></zoom>
+		<p>zoomPan is a basic Angular.js custom directive that zooms and pans as you move the cursor over the image. I have tried to keep the code as minimal as possible so it can be easily adapted.</p>
+		<p>To use download and place the zoomPan directory into your working directory and include the script and style sheet in your markup.
+		You can then use the directive in your project:</p>
+		<div class="code">
+			<pre>&lt;html ng-app="zoomPanApp"&gt;&#10;&#10;&lt;head&gt;&#10;	&lt;script src="js/zoomPan.js"&gt;&lt;/script&gt;&#10;	&lt;link href="css/zoomPan.css" rel="stylesheet" type="text/css"&gt;&#10;&lt;/head&gt;&#10;&#10;&lt;body&gt;&#10;	&lt;zoom src="./imageURL.jpg" frame="example1" img="image1" zoomlvl="1.5"&gt;&lt;/zoom&gt;</pre>
+		</div>
+		<p ng-non-bindable>In this example the image url is placed directly into the directive but this could easily come from a binding defined elsewhere.
+		Three other properties are also set (*Mandatory Properties) ;</p>
+		<ul>
+			<li>frame - provide a unquie identifier to be attributed to the image containter *</li>
+			<li>img - provide a unquie identifier to be attributed to the actual image *</li>
+			<li>zoomlvl - provide a scale to zoom by, default 2.5</li>
+		</ul>
+		
+		<h1>Logic</h1>
+		<zoom src="{{ './pierre-auguste-renoir-picking-flowers-1875.jpg' }}" frame="example2" img="image2" zoomlvl="2.5")></zoom>
+		<p>On page load zoomPan gets the frame and image by ID. It then collects the relevent data to 
+		calculate the frame's top and left offset from the document edge. 
+		Using this offset the relative X and Y position of the cursor over the image can then be found. 
+		This position can then be turned into a percentage which is fed into the origin transform on the image.</p>
+		<div class="code">
+			<pre>//((cursor X/Y location - image left/top offset) ÷ width/height of image) * 100)&#10;xPosition = (($event.pageX - offsetL) / fWidth) * 100&#10;yPosition = (($event.pageY - offsetT) / fHeight) * 100&#10;&#10;pan = xPosition + "% " + yPosition + "% 0";&#10;image.style.transformOrigin = pan;</pre>
+		</div>
+	</div>
+</body>
+</html>
